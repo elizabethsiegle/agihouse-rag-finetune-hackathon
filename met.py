@@ -2,7 +2,7 @@ from metaphor_python import Metaphor
 import requests
 
 idea = "community based clothing resale"
-METAPHOR_API_KEY = ""
+METAPHOR_API_KEY = "4fb5acf8-c22b-4997-be66-36de42dbf7b6"
 
 # given an idea, returns a list of competitors 
 def find_competitors(idea):
@@ -10,8 +10,8 @@ def find_competitors(idea):
     url = "https://api.metaphor.systems/search/snippet"
 
     payload = { "query": search,
-            "snippetLength": 2,
-            "numResults": 10,
+            "snippetLength": 3,
+            "numResults": 2,
     }
 
     headers = {
@@ -32,7 +32,7 @@ def research_company(company_link):
     payload = {
         "query": company_link,
         "type": "keyword",
-        "numResults": 5,
+        "numResults": 2,
     }
     headers = {
         "accept": "application/json",
@@ -65,8 +65,9 @@ def whodoneit(idea):
     for competitor in competitor_results:
         
         #for each competitor, look up 5 links
-        competitor_research = research_company(competitor['url'])
         competitor_contents = []
+        competitor_contents.append(competitor['snippet'])
+        competitor_research = research_company(competitor['url'])
         for link in competitor_research:
             competitor_contents.append(get_contents(link['id']))
         competitors[competitor['url']] = competitor_contents
@@ -75,5 +76,5 @@ def whodoneit(idea):
 print(whodoneit(idea))
 # print(find_competitors(idea)[0]['url'])
 # print(get_contents('2efb2f66-1b78-4f0d-b599-b643c99708d9'))
-# print(research_company("https://thrift.house")[0].keys())
+# print(research_company("https://thrift.house"))
 
