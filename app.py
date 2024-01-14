@@ -1,4 +1,8 @@
 from dotenv import load_dotenv
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from langchain.llms import OpenAI
+from met import find_competitors, research_company, get_contents, whodoneit
 from metaphor_python import Metaphor
 import os
 from PIL import Image
@@ -10,21 +14,22 @@ import streamlit as st
 
 
 metaphor = Metaphor(os.environ.get("METAPHOR_API_KEY"))
+example_idea = "PetMatchmaker: An AI-driven dating app for pets. The app uses advanced algorithms to find the perfect playdate or lifelong companion for their furry friends. It's like Tinder, but for pets, ensuring every whisker and wagging tail finds its soulmate."
 load_dotenv()
 
-st.title("Who's Done it: Diligence AI") 
+st.title("Who Done it: Diligence AI") 
 st.write("You think you have original ideas? You don't.😘") # semantic search
 image = Image.open('competition.jpeg')
 st.image(image)
 
-site = st.text_input("Describe your startup idea💡:", "Provide personalized fashion advice based on a survey")
+idea = st.text_area("Describe your startup idea in as much depth as you'd like💡. We'll show you who's building something similar:", placeholder=example_idea)
+user_email = st.text_input("Email to get report📧")
 
 if st.button('Generate competitors report👩🏻‍🏫'):
     # metaphor semantic seatch, st.write
-    print("here")
-
-user_email = st.text_input("Email to get report📧")
-if st.button("Send email"):
+    startup_research = whodoneit(idea)
+    print(startup_research)
+    
     message = Mail(
         from_email='existing_ideas@ai.com',
         to_emails=user_email,
@@ -34,6 +39,15 @@ if st.button("Send email"):
     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
     response = sg.send(message)
     print(response.status_code, response.body, response.headers)
+    # template = """Startup research: {startup_research}
+    # Answer: Here are startups doing what you want to do."""
+    # prompt = PromptTemplate(template=template, input_variables=["startup_research"])
+    # llm = OpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"))
+    # llm_chain = LLMChain(prompt=prompt, llm=llm)
+    # question = "BASED ON THE "
+    # llm_chain.run(question)
+
+
 
 with open('./css/style.css') as f:
     css = f.read()
