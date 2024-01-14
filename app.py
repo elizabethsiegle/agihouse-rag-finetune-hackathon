@@ -9,15 +9,17 @@ from sendgrid.helpers.mail import (
 import streamlit as st
 
 
+
 metaphor = Metaphor(os.environ.get("METAPHOR_API_KEY"))
+example_idea = "PetMatchmaker: An AI-driven dating app for pets. The app uses advanced algorithms to find the perfect playdate or lifelong companion for their furry friends. It's like Tinder, but for pets, ensuring every whisker and wagging tail finds its soulmate."
 load_dotenv()
 
 st.title("Who's Done it: Diligence AI") 
 st.write("You think you have original ideas? You don't.😘") # semantic search
-image = Image.open('competition.jpeg')
-st.image(image)
+# image = Image.open('competition.jpeg')
+# st.image(image)
 
-site = st.text_input("Describe your startup idea💡:", "Provide personalized fashion advice based on a survey")
+site = st.text_area("Describe your startup idea in as much depth as you'd like💡. We'll show you who's building something similar:", example_idea)
 
 if st.button('Generate competitors report👩🏻‍🏫'):
     # metaphor semantic seatch, st.write
