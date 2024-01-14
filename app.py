@@ -60,7 +60,7 @@ footer {
 }
 </style>
 <footer>
-<p>Developed with ❤ by <a href="https://twitter.com/engineer_abel" target="_blank">Abel Regalado</a> <a href="https://twitter.com/sarahchieng" target="_blank">Sarah Chieng</a>, && <a href="https://twitter.com/lizziepika" target="_blank">Lizzie Siegle</a></p>
+<p>Developed with ❤ by <a href="https://twitter.com/engineer_abel" target="_blank">Abel Regalado</a>, <a href="https://twitter.com/sarahchieng" target="_blank">Sarah Chieng</a>, & <a href="https://twitter.com/lizziepika" target="_blank">Lizzie Siegle</a></p>
 <p>✅ out the code on <a href="https://github.com/elizabethsiegle/agihouse-rag-finetune-hackathon" target="_blank">GitHub</a></p>
 </footer>
 """
