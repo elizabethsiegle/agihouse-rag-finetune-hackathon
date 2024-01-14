@@ -2,7 +2,7 @@ from metaphor_python import Metaphor
 import requests
 
 idea = "community based clothing resale"
-METAPHOR_API_KEY = "4fb5acf8-c22b-4997-be66-36de42dbf7b6"
+METAPHOR_API_KEY = ""
 
 # given an idea, returns a list of competitors 
 def find_competitors(idea):
