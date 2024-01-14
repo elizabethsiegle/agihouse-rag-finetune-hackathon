@@ -11,6 +11,7 @@ def find_competitors(idea):
 
     payload = { "query": search,
             "snippetLength": 3,
+            "useAutoprompt": False,
             "numResults": 2,
     }
 
