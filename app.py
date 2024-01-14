@@ -12,7 +12,6 @@ from sendgrid.helpers.mail import (
     Mail, Attachment, FileContent, FileName, FileType, Disposition)
 import streamlit as st
 
-
 metaphor = Metaphor(os.environ.get("METAPHOR_API_KEY"))
 example_idea = "PetMatchmaker: An AI-driven dating app for pets. The app uses advanced algorithms to find the perfect playdate or lifelong companion for their furry friends. It's like Tinder, but for pets, ensuring every whisker and wagging tail finds its soulmate."
 load_dotenv()
@@ -74,7 +73,7 @@ footer {
 }
 </style>
 <footer>
-<p>Developed with ❤ by <a href="https://twitter.com/engineer_abel" target="_blank">Abel Regalado</a> <a href="https://twitter.com/sarahchieng" target="_blank">Sarah Chieng</a>, && <a href="https://twitter.com/lizziepika" target="_blank">Lizzie Siegle</a></p>
+<p>Developed with ❤ by <a href="https://twitter.com/engineer_abel" target="_blank">Abel Regalado</a>, <a href="https://twitter.com/sarahchieng" target="_blank">Sarah Chieng</a>, & <a href="https://twitter.com/lizziepika" target="_blank">Lizzie Siegle</a></p>
 <p>✅ out the code on <a href="https://github.com/elizabethsiegle/agihouse-rag-finetune-hackathon" target="_blank">GitHub</a></p>
 </footer>
 """
