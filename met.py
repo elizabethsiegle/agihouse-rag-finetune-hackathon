@@ -51,7 +51,7 @@ def get_contents(document_id):
     url = f"{base_url}?ids={document_id}"
     headers = {
         "accept": "application/json",
-        "x-api-key": "4fb5acf8-c22b-4997-be66-36de42dbf7b6"
+        "x-api-key": METAPHOR_API_KEY
     }
 
     response = requests.get(url, headers=headers)
